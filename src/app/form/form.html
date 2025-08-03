@@ -1,0 +1,58 @@
+
+<div class="container mt-5">
+  <div class="card p-4 shadow-lg">
+    <h2 class="text-center mb-4">Feedback Form</h2>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label>Name</label>
+          <input type="text" [(ngModel)]="feedback.name" name="name" class="form-control" required />
+        </div>
+        <div class="col-md-6 mb-3">
+          <label>Email</label>
+          <input type="email" [(ngModel)]="feedback.email" name="email" class="form-control" required />
+        </div>
+        <div class="col-md-6 mb-3">
+          <label>Phone</label>
+          <input type="number" [(ngModel)]="feedback.phone" name="phone" class="form-control" required />
+        </div>
+      
+        <div class="col-md-6 mb-3">
+          <label>Gender</label>
+          <select class="form-select" [(ngModel)]="feedback.gender" name="gender" required>
+            <option  value="Male">Male</option>
+            <option  value="Female">Female</option>
+          </select>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label>Rating (1 to 10)</label>
+          <input type="number" min="1" max="10" [(ngModel)]="feedback.rating" name="rating" class="form-control" required placeholder="0" />
+        </div>
+
+        <div class="col-md-6 mb-3">
+  <label >Feedback Category</label>
+  <select
+    class="form-select"
+    [(ngModel)]="feedback.category"
+    name="category"
+    required >
+    <option value="Bug">Bug</option>
+    <option value="Suggestion">Suggestion</option>
+    <option value="Complaint">Complaint</option>
+    <option value="Praise">Praise</option>
+  </select>
+</div>
+
+
+        <div class="mb-3">
+          <label>Feedback Message</label>
+          <textarea class="form-control" rows="4" [(ngModel)]="feedback.message" name="message" required></textarea>
+        </div>
+        <div class="d-flex justify-content-between mt-4">
+          <button type="submit"  class="btn btn-outline-success me-2"  >Submit</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary" (click)="resetForm()">Reset</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

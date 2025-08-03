@@ -1,6 +1,14 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
 import { App } from './app/app';
+import { provideRouter } from '@angular/router';
+import { Form } from './app/form/form';
+import { List } from './app/list/list';
 
-bootstrapApplication(App, appConfig)
-  .catch((err) => console.error(err));
+const routes = [
+  { path: '', component: Form },
+  { path: 'list', component: List }
+];
+
+bootstrapApplication(App, {
+  providers: [provideRouter(routes)],
+});

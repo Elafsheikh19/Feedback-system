@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <h3>Submitted Feedbacks</h3>
+  <div *ngIf="feedbacks.length === 0">No feedback submitted yet.</div>
+  <table class="table table-bordered" *ngIf="feedbacks.length > 0">
+    <thead class="table-secondary">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Gender</th>
+        <th>Rating</th>
+        <th>Message</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let fb of feedbacks; let i = index">
+        <td>{{ fb.name }}</td>
+        <td>{{ fb.email }}</td>
+        <td>{{ fb.phone }}</td>
+        <td>{{ fb.gender }}</td>
+        <td>{{ fb.rating }}</td>
+        <td>{{ fb.message }}</td>
+        <td><button class="btn btn-danger btn-sm" (click)="deleteFeedback(i)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
